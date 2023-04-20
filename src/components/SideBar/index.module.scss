@@ -1,0 +1,23 @@
+@import "bootstrap/scss/functions"; // Required
+@import "bootstrap/scss/variables"; // Required
+@import "bootstrap/scss/mixins"; // Required
+
+@include media-breakpoint-down(lg) {
+  .sideBar {
+    width: 100% !important;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .pt-5 {
+    padding-top: ($spacer * 100) !important;
+  }
+}
+
+.menuOption:hover {
+  background-color: rgb(63, 71, 78);
+}
+
+.sideBarTransition {
+  transition: width 1s;
+}

@@ -1,0 +1,96 @@
+body {
+  min-height: -webkit-fill-available;
+}
+
+html {
+  height: -webkit-fill-available;
+}
+
+#__next {
+  display: flex;
+  flex-direction: row;
+  min-height: 100vh;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: gray;
+  border-radius: 20px;
+  border: 1px solid #f1f1f1;
+}
+
+.react-datepicker__header {
+  background-color: #0d6efd;
+}
+
+.react-datepicker__day-name {
+  font-weight: bolder;
+  color: white;
+}
+
+.react-datepicker__day--selected {
+  border-radius: 50%;
+  padding-top: 4px;
+  width: 35px;
+  height: 35px;
+  text-align: center;
+  background-color: #0d6efd;
+}
+
+.react-datepicker__day--selected:hover {
+  background-color: #0b5ed7;
+}
+
+.react-datepicker__day {
+  width: 35px;
+  height: 35px;
+  padding-top: 4px;
+}
+
+.react-datepicker__day:hover {
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  text-align: center;
+  padding-top: 4px;
+}
+
+.react-datepicker__day-name {
+  margin: 0px 7px;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url("../../src/assets/icons/caret-down-fill.svg");
+  background-repeat: no-repeat;
+  background-position: right 0.5em top 50%;
+  padding-right: 1.5em;
+}
+
+input[type="number"] {
+  -webkit-appearance: textfield;
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+.apexcharts-menu-open {
+  margin-right: -70px;
+}
+
+.tooltipApexCharts {
+  cursor: default !important;
+}

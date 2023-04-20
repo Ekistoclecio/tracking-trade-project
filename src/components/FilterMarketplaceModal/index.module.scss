@@ -1,0 +1,17 @@
+@import "bootstrap/scss/functions"; // Required
+@import "bootstrap/scss/variables"; // Required
+@import "bootstrap/scss/mixins"; // Required
+
+.maxWidth {
+  max-width: 400px;
+}
+
+.inputSearch:focus {
+  outline: none;
+}
+
+@include media-breakpoint-down(sm) {
+  .maxWidth {
+    max-width: 100%;
+  }
+}
