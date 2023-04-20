@@ -27,11 +27,11 @@ export default async function Login(req: NextApiRequest, res: NextApiResponse) {
       if (cookie) {
         return res.status(200).json({ logged: true, cookie });
       } else {
-        return res.status(401).json({ logged: false });
+        return res.status(200).json({ logged: false });
       }
     })
     .catch((err) => {
       console.log(err);
-      return res.status(401).json({ logged: false });
+      return res.status(200).json({ logged: false });
     });
 }
