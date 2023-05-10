@@ -1,9 +1,7 @@
 import { useEffect, useState } from "react";
 import { useChartFiltersContext } from "../providers/contexts/chartFiltersContext";
 
-export default function useFilterBarContainer() {
-  const [showfilterMarketplaceModal, setShowFilterMarketplaceModal] =
-    useState(false);
+export default function useChartFilterBar() {
   const [date, setDate] = useState(new Date());
   const {
     filterMarketplacesID,
@@ -25,12 +23,10 @@ export default function useFilterBarContainer() {
   }, [date]);
 
   return {
-    showfilterMarketplaceModal,
     filterMarketplacesID,
     filterPeriod,
     filterFormOfPayment,
     date,
-    setShowFilterMarketplaceModal,
     setFilterDataRange,
     setFilterFormOfPayment,
     setFilterPeriod,

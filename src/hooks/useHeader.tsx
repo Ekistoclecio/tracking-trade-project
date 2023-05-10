@@ -2,8 +2,9 @@ import { useEffect, useState } from "react";
 import { useAuthContext } from "../providers/contexts/authContext";
 import { useProductContext } from "../providers/contexts/productContext";
 import { ProductData } from "../interfaces/interfaces";
+import { useDisclosure } from "@chakra-ui/react";
 
-export default function useTopBar() {
+export default function useHeader() {
   const [userName, setFirstUserName] = useState("Ekistoclecio Lima");
   const [initialsUserName, setInitialsUserName] = useState("");
   const { setLogged, setAuthTokenCookie } = useAuthContext();
@@ -12,6 +13,7 @@ export default function useTopBar() {
   const [localArrayProducts, setLocalArrayProducts] = useState<ProductData[]>(
     [] as ProductData[]
   );
+  const { onOpen, onClose, isOpen } = useDisclosure();
 
   useEffect(() => {
     if (document) {
@@ -62,21 +64,24 @@ export default function useTopBar() {
   }
 
   const logout = () => {
+    window.location.reload();
     setLogged(false);
     window.localStorage.removeItem("LOGGED");
     setAuthTokenCookie("");
     window.localStorage.removeItem("AUTH_SESSION_TOKEN");
-    window.location.reload();
   };
 
   const setProduct = (e: any) => {
     const element = e.target as HTMLElement;
-    const id = element.closest(".dropdown-item")?.id;
+    const id = element.closest(".popoverItem")?.id;
     setSearchProductValue("");
     setCurrentProductID(id);
   };
 
   return {
+    onOpen,
+    onClose,
+    isOpen,
     userName,
     initialsUserName,
     localArrayProducts,

@@ -5,7 +5,7 @@ import { useAuthContext } from "../providers/contexts/authContext";
 import APIClient from "../services/api/rest/client";
 import { QUERY_MARKETPLACES_LIST } from "../services/api/graphql/gql-interfaces";
 
-export default function useMarketplaceListContainer() {
+export default function useMarketplaceTable() {
   const [date, setDate] = useState(new Date());
   const [priceType, setPriceType] = useState("mode");
   const [dataMarketplaceList, setDataMarketplaceLista] = useState<

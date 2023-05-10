@@ -5,7 +5,7 @@ import { ProductData } from "../interfaces/interfaces";
 import APIClient from "../services/api/rest/client";
 import { QUERY_PRODUCT } from "../services/api/graphql/gql-interfaces";
 
-export default function useProductContainer() {
+export default function useProductSummary() {
   const { authTokenCookie } = useAuthContext();
   const { currentProductID } = useProductContext();
   const [productData, setProductData] = useState<ProductData>(

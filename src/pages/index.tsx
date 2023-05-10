@@ -1,45 +1,34 @@
-import Dashboad from "../components/Dashboard";
-import SideBar from "../components/SideBar";
-import TopBar from "../components/TopBar";
-import { useAuthContext } from "../providers/contexts/authContext";
+import { Box, Center, Flex, Text } from "@chakra-ui/react";
+
 import LoginScreen from "../components/LoginScreen";
-import useStyleHomePage from "../hooks/useStyleHomePage";
+import SideBar from "../components/SideBar";
+import Header from "../components/Header";
+import Dashboard from "../components/Dashboard";
+import { useState } from "react";
+import { useAuthContext } from "../providers/contexts/authContext";
 
 export default function Home() {
+  const [sideBarToggle, setSideBarToggle] = useState(false);
   const { logged } = useAuthContext();
-  const { LayoutRef, divRef, sideBarIsOpen, contenteWidth, setSideBarIsOpen } =
-    useStyleHomePage();
-  return !logged ? (
-    <div
-      ref={LayoutRef}
-      className="d-flex flex-column align-items-center hv-100 w-100 justify-content-center"
-      style={{ background: "#e9ecef" }}
-    >
-      <LoginScreen></LoginScreen>
-      <span ref={divRef}></span>
-    </div>
-  ) : (
-    <div
-      ref={LayoutRef}
-      className="d-flex flex-column flex-md-row w-100 overflow-hidden"
-    >
-      <div
-        ref={divRef}
-        className="d-flex h-100"
-        style={{ minWidth: "max-content" }}
-      >
-        <SideBar openSideBar={sideBarIsOpen} />
-      </div>
-      <div
-        className="d-flex flex-column"
-        style={{ minWidth: `${contenteWidth}px` }}
-      >
-        <TopBar
-          sideBarState={sideBarIsOpen}
-          openCloseSideBar={setSideBarIsOpen}
+  return logged ? (
+    <Flex minH={"min-content"}>
+      <Flex>
+        <SideBar
+          setIsOpen={() => setSideBarToggle(false)}
+          isOpen={sideBarToggle}
         />
-        <Dashboad />
-      </div>
-    </div>
+      </Flex>
+      <Box flex={1} bg="gray.200" minH={"min-content"}>
+        <Header
+          sideBarIsOpen={sideBarToggle}
+          toggleSideBar={setSideBarToggle}
+        />
+        <Dashboard />
+      </Box>
+    </Flex>
+  ) : (
+    <Box h={"100vh"} minH={"min-content"} bg="gray.200">
+      <LoginScreen />
+    </Box>
   );
 }

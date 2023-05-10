@@ -12,7 +12,7 @@ export default class APIClient {
   async login(data: any) {
     //console.log(data);
     const response = await this.axiosClient.post("api/login", data);
-    console.log(response);
+    //console.log(response);
     return response.data;
   }
 

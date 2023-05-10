@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Marketplace } from "../interfaces/interfaces";
 import { useChartFiltersContext } from "../providers/contexts/chartFiltersContext";
 
-export default function useFilterMarketplaceModal(closeModal: () => void) {
+export default function useMarketplaceModal(closeModal: () => void) {
   const { arrayMarketplaces, filterMarketplacesID } = useChartFiltersContext();
   const [searchMarketplaceValue, setSearchMarketplaceValue] = useState("");
   const [localArrayMarketplaces, setLocalArrayMarketplaces] = useState<

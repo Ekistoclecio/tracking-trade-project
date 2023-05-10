@@ -13,13 +13,13 @@ import {
   priceChartOptions,
   temperatureChartOptions,
 } from "../config/chart";
-import { ChartContainerProps } from "../interfaces/interfaces";
+import { ChartProps } from "../interfaces/interfaces";
 
-export default function useChartContainer({
+export default function useChart({
   type,
   titleChart,
   renderingTime,
-}: ChartContainerProps) {
+}: ChartProps) {
   const [options, setOptions] = useState({} as ApexCharts.ApexOptions);
   const [width, setWidth] = useState(560);
   const [series, setSeries] = useState<

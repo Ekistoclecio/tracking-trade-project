@@ -1,12 +1,17 @@
 import { ChangeEvent, useState } from "react";
 import { useAuthContext } from "../providers/contexts/authContext";
 import APIClient from "../services/api/rest/client";
+import { useToast } from "@chakra-ui/react";
 
 export default function useLoginScreen() {
   const [formState, setFormState] = useState({
     email: "",
     password: "",
   });
+  const [showPassword, setShowPassword] = useState(false);
+  const handleShowPassword = () => setShowPassword(!showPassword);
+
+  const toast = useToast();
 
   const { authTokenCookie, setLogged, setAuthTokenCookie } = useAuthContext();
 
@@ -30,7 +35,15 @@ export default function useLoginScreen() {
       );
       resetForm();
     } else {
-      alert("Login failed, please verify your details and try again.");
+      toast.closeAll();
+      toast({
+        title: "Login failed.",
+        description: "Please verify your details and try again.",
+        status: "error",
+        duration: 9000,
+        isClosable: true,
+        position: "top",
+      });
     }
   }
 
@@ -39,6 +52,9 @@ export default function useLoginScreen() {
   };
 
   return {
+    showPassword,
+    setShowPassword,
+    handleShowPassword,
     formState,
     setFormState,
     resetForm,

@@ -33,7 +33,7 @@ export interface Marketplace {
   pictureUrl: string | null;
 }
 
-export interface ChartContainerProps {
+export interface ChartProps {
   type: "price" | "temperature" | "presence";
   titleChart: string;
   renderingTime: number;
@@ -44,9 +44,9 @@ export interface CustomDatePickerProps {
   setDate: (val: any) => void;
 }
 
-export interface FilterMarketplaceModalProps {
-  show: boolean;
-  closeModal: () => void;
+export interface MarketplaceModalProps {
+  isOpen: boolean;
+  onClose: () => void;
 }
 
 export interface LoginModalProps {
@@ -54,7 +54,7 @@ export interface LoginModalProps {
   closeModal: () => void;
 }
 
-export interface TopBarProps {
-  openCloseSideBar: (e: boolean) => void;
-  sideBarState: boolean;
+export interface HeaderProps {
+  toggleSideBar: (val: boolean) => void;
+  sideBarIsOpen: boolean;
 }
