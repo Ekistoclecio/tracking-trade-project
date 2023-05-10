@@ -1,7 +1,7 @@
 import { Box, Button, Flex, Text, useDisclosure } from "@chakra-ui/react";
 import useChartFilterBar from "../../hooks/useChartFilterBar";
 
-import Datepicker from "../Datepicker/Index";
+import Datepicker from "../customDatepicker";
 import MarketplaceModal from "../MarketplaceModal";
 
 export default function ChartFilterBar() {

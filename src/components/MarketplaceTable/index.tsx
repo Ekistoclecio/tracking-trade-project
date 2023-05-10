@@ -17,7 +17,7 @@ import {
   Tooltip,
   Tr,
 } from "@chakra-ui/react";
-import Datepicker from "../Datepicker/Index";
+import Datepicker from "../customDatepicker";
 import useMarketplaceTable from "../../hooks/useMarketplaceTable";
 import { ChevronDownIcon } from "@chakra-ui/icons";
 export default function MarketplaceTable() {
